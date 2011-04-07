@@ -89,9 +89,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dependencies.targets" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Pipeline\" />
   </ItemGroup>
   <ItemGroup>
