@@ -95,22 +95,22 @@ namespace OpenRasta.Hosting.AspNet
             return true;
         }
 
-        protected internal void RaiseIncomingRequestProcessed(ICommunicationContext context)
+        public void RaiseIncomingRequestProcessed(ICommunicationContext context)
         {
             IncomingRequestProcessed.Raise(this, new IncomingRequestProcessedEventArgs(context));
         }
 
-        protected internal virtual void RaiseIncomingRequestReceived(ICommunicationContext context)
+        public virtual void RaiseIncomingRequestReceived(ICommunicationContext context)
         {
             IncomingRequestReceived.Raise(this, new IncomingRequestReceivedEventArgs(context));
         }
 
-        protected internal virtual void RaiseStart()
+        public virtual void RaiseStart()
         {
             Start.Raise(this);
         }
 
-        protected internal virtual void RaiseStop()
+        public virtual void RaiseStop()
         {
             Stop.Raise(this);
         }

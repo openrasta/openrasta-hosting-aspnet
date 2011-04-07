@@ -21,12 +21,12 @@ namespace OpenRasta.Hosting.AspNet
 {
     public class OpenRastaModule : IHttpModule
     {
-        internal const string COMM_CONTEXT_KEY = "__OR_COMM_CONTEXT";
-        internal const string ORIGINAL_PATH_KEY = "__ORIGINAL_PATH";
-        internal const string SERVER_SOFTWARE_KEY = "SERVER_SOFTWARE_KEY";
+        protected internal const string COMM_CONTEXT_KEY = "__OR_COMM_CONTEXT";
+        protected internal const string ORIGINAL_PATH_KEY = "__ORIGINAL_PATH";
+        protected internal const string SERVER_SOFTWARE_KEY = "SERVER_SOFTWARE_KEY";
 
-        internal static HostManager HostManager;
-        static readonly object _syncRoot = new object();
+        protected internal static HostManager HostManager;
+        protected static readonly object _syncRoot = new object();
 
         static OpenRastaModule()
         {
@@ -59,7 +59,7 @@ namespace OpenRasta.Hosting.AspNet
             // we never unregister the host, as the AppDomain will die before we have to care.
         }
 
-        public void Init(HttpApplication context)
+        public virtual void Init(HttpApplication context)
         {
             context.PostResolveRequestCache += HandleHttpApplicationPostResolveRequestCacheEvent;
             context.EndRequest += HandleHttpApplicationEndRequestEvent;
@@ -78,12 +78,12 @@ namespace OpenRasta.Hosting.AspNet
             }
         }
 
-        static bool HandlerAlreadyMapped(string method, Uri path)
+        protected virtual bool HandlerAlreadyMapped(string method, Uri path)
         {
             return Iis.IsHandlerAlreadyRegisteredForRequest(method, path);
         }
 
-        static void VerifyIisDetected(HttpContext context)
+        protected virtual void VerifyIisDetected(HttpContext context)
         {
             lock (_syncRoot)
             {
@@ -122,7 +122,7 @@ namespace OpenRasta.Hosting.AspNet
             }
         }
 
-        static void HandleHttpApplicationEndRequestEvent(object sender, EventArgs e)
+        protected virtual void HandleHttpApplicationEndRequestEvent(object sender, EventArgs e)
         {
             if (HttpContext.Current.Items.Contains(ORIGINAL_PATH_KEY))
             {
@@ -132,7 +132,7 @@ namespace OpenRasta.Hosting.AspNet
             }
         }
 
-        static void HandleHttpApplicationPostResolveRequestCacheEvent(object sender, EventArgs e)
+        protected virtual void HandleHttpApplicationPostResolveRequestCacheEvent(object sender, EventArgs e)
         {
             VerifyIisDetected(HttpContext.Current);
             if (!HostingEnvironment.VirtualPathProvider.FileExists(HttpContext.Current.Request.Path)
