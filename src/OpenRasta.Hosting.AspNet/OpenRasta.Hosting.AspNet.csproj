@@ -73,11 +73,9 @@
     <None Include="web.config.uninstall.xdt">
       <SubType>Designer</SubType>
     </None>
-    <None Include="openrasta-hosting-aspnet.nuspec">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="OpenRasta.Hosting.AspNet.nuspec" />
     <Content Include="packages.config" />
     <Content Include="web.config.install.xdt">
       <SubType>Designer</SubType>
