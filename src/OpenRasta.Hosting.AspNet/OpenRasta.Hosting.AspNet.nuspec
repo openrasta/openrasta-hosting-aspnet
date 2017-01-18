@@ -12,7 +12,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Asp.Net hosting environment for OpenRasta</description>
         <releaseNotes />
-        <copyright>Copyright 2007</copyright>
+        <copyright>Copyright 2007-2017</copyright>
         <tags>OpenRasta AspNet Hosting</tags>
         <dependencies>
             <dependency id="openrasta-core" version="2.5.0" />
