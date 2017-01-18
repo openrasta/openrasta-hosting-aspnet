@@ -12,12 +12,12 @@
           $version = "$version-ci-$build"
         }
         else {
-          $version = "$version-branch-$branch-$build"
+          $version = "$version-br-$branch-$build"
         }
         Set-AppveyorBuildVariable -Name "AssemblyMajor" -Value "$major"
         Update-AppVeyorBuild -Version "$version"
 
-  - gem install chandler
+  - gem install chandler --no-ri --no-rdoc
   - ps: set-content ~/.netrc "machine api.github.com login $env:github_username password $env:github_password" -encoding ascii
   - ps: cp ~/.netrc ~/_netrc
   - chandler push
@@ -31,6 +31,10 @@ assembly_info:
 
 before_build:
   - nuget restore src
+
+nuget:
+  project_feed: true
+  disable_publish_on_pr: true
 
 configuration: Release
 
