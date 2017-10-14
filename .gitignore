@@ -1,3 +1,5 @@
+packages/
+.idea/
 obj
 bin
 bin/*
