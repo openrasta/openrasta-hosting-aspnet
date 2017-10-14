@@ -36,8 +36,8 @@
     <Reference Include="OpenRasta, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\openrasta-core.2.5.1050-b25di-1137\lib\net40\OpenRasta.dll</HintPath>
     </Reference>
-    <Reference Include="OpenRasta.Testing">
-      <HintPath>..\..\lib\openrasta-testing\OpenRasta.Testing.dll</HintPath>
+    <Reference Include="Shouldly, Version=2.8.3.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941">
+      <HintPath>..\packages\Shouldly.2.8.3\lib\net40\Shouldly.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

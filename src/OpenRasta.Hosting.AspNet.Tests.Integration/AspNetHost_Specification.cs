@@ -3,8 +3,8 @@ using System.Text;
 using NUnit.Framework;
 using OpenRasta.Configuration;
 using OpenRasta.Hosting.AspNet.Tests.Integration;
-using OpenRasta.Testing;
 using OpenRasta.Web;
+using Shouldly;
 
 namespace AspNetHost_Specification
 {
