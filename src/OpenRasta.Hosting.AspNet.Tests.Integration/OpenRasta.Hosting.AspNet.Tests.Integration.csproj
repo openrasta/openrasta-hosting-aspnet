@@ -34,7 +34,7 @@
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="OpenRasta, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\openrasta-core.2.5.1050-b25di-1137\lib\net40\OpenRasta.dll</HintPath>
+      <HintPath>..\packages\openrasta-core.2.5.1050-b25di-1139\lib\net40\OpenRasta.dll</HintPath>
     </Reference>
     <Reference Include="Shouldly, Version=2.8.3.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941">
       <HintPath>..\packages\Shouldly.2.8.3\lib\net40\Shouldly.dll</HintPath>
@@ -42,7 +42,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
