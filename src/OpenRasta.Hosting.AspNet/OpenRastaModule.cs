@@ -55,9 +55,9 @@ namespace OpenRasta.Hosting.AspNet
         public static AspNetHost Host { get; private set; }
         public static Iis Iis { get; set; }
 
-        protected static ILogger<AspNetLogSource> Log { get; set; }
+      protected static ILogger<AspNetLogSource> Log { get; set; } = new TraceSourceLogger<AspNetLogSource>();
 
-        public void Dispose()
+      public void Dispose()
         {
             // Note we do not unsubscrie from events on HttpApplication as that instance is going down and it'd cause an exception.
             if (_disposed) return;
@@ -91,6 +91,7 @@ namespace OpenRasta.Hosting.AspNet
                         {
                             HostManager.UnregisterHost(Host);
                             HostManager = null;
+                            throw;
                         }
                     }
                 }
@@ -180,7 +181,6 @@ namespace OpenRasta.Hosting.AspNet
                 Log.IgnoredRequest();
                 return;
             }
-            ;
             HttpContext.Current.Items[ORIGINAL_PATH_KEY] = HttpContext.Current.Request.Path;
             // TODO: This is to make the pipeline recognize the request by extension for handler processing. I *think* that's not necessary in integrated but have no memory of what is supposed to happen....
             HttpContext.Current.RewritePath(VirtualPathUtility.ToAppRelative("~/ignoreme.rastahook"), false);
