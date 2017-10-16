@@ -21,6 +21,7 @@ install:
         else {
           $version = "$version-br-$branch-$build"
         }
+        echo "Version is $version"
         Set-AppveyorBuildVariable -Name "AssemblyMajor" -Value "$major"
         Update-AppVeyorBuild -Version "$version"
 
