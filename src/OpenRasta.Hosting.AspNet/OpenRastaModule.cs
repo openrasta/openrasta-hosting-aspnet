@@ -86,6 +86,7 @@ namespace OpenRasta.Hosting.AspNet
                         {
                             Host.RaiseStart();
                             Log = HostManager.Resolver.Resolve<ILogger<AspNetLogSource>>();
+                            if (Log == null) throw new InvalidOperationException("There should be a logger...");
                         }
                         catch
                         {
