@@ -71,7 +71,7 @@ test:
    - src\Tests\bin\$(configuration)\Tests.dll
 
 artifacts:
-- path: *.nupkg
+- path: "*.nupkg"
   name: nuget
 - path: src\OpenRasta.Hosting.AspNet\bin\$(configuration)\*.dll
   name: dlls
