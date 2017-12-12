@@ -16,7 +16,7 @@ install:
         echo "VERSION: $version, build: $build, major: $major, branch: $branch"
         if ($branch -eq 'master') {
           $version = "$version-ci-$build"
-        } elseif ($env:APPVEYOR_REPO_TAG) {
+        } elseif ($env:APPVEYOR_REPO_TAG -eq "true") {
           echo "Setting to tag name"
           $version = $env:APPVEYOR_REPO_TAG_NAME
         }
