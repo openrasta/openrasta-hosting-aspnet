@@ -62,12 +62,17 @@ build:
   include_nuget_references: true
   verbosity: minimal
 
+after_build:
+  - nuget pack src/OpenRasta.Hosting.AspNet/ -Properties "Configuration=Release;Platform=AnyCPU" -Symbols -IncludeReferencedProjects
+
 test:
   assemblies: 
    - src\OpenRasta.Hosting.AspNet.Tests.Integration\bin\$(configuration)\OpenRasta.Hosting.AspNet.Tests.Integration.dll
    - src\Tests\bin\$(configuration)\Tests.dll
 
 artifacts:
+- path: *.nupkg
+  name: nuget
 - path: src\OpenRasta.Hosting.AspNet\bin\$(configuration)\*.dll
   name: dlls
 - path: src\OpenRasta.Hosting.AspNet\bin\$(configuration)\*.pdb
